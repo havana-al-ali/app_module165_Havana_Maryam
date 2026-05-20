@@ -6,16 +6,12 @@ header('Content-Type: application/json; charset=utf-8');
 
 $type = $_GET['type'] ?? '';
 
-if ($type === 'female') {
-    // Filtrer les étudiantes
-    $filter = ['gender' => 'female'];
+if ($type === 'female_highschool') {
+    $filter = [
+        'gender' => 'female',
+        'parental level of education' => 'high school'
+    ];
 }
-
-elseif ($type === 'bachelor') {
-    // Filtrer les étudiants dont le niveau est EXACTEMENT "bachelor's degree"
-    $filter = ['parental level of education' => "bachelor's degree"];
-}
-
 else {
     echo json_encode(['error' => 'Filtre inconnu']);
     exit;
@@ -23,5 +19,4 @@ else {
 
 $result = $collection->find($filter)->toArray();
 
-// Afficher seulement le nombre de résultats
-echo json_encode(count($result), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

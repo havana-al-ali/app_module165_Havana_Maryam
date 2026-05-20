@@ -1,36 +1,36 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/connect.php'; 
+require __DIR__ . '/connect.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
-// Récupérer le champ à trier depuis l'URL : ?field=math ou ?field=writing
 $field = $_GET['field'] ?? 'math';
 
-// Adapter le nom du champ MongoDB
-if ($field === 'math') {
-    $mongoField = 'math score';
-} elseif ($field === 'writing') {
-    $mongoField = 'writing score';
-} else {
-    echo json_encode(['error' => 'Champ de tri invalide']);
+$map = [
+    'math' => 'math score',
+    'writing' => 'writing score'
+];
+
+if (!isset($map[$field])) {
+    echo json_encode(['error' => 'Champ invalide']);
     exit;
 }
 
-// Récupérer le meilleur élève selon ce champ
 $result = $collection->find(
     [],
     [
-        'sort'  => [$mongoField => -1], // -1 = décroissant
+        'sort' => [$map[$field] => -1],
         'limit' => 1
     ]
 )->toArray();
 
-// Si aucun résultat
-if (count($result) === 0) {
-    echo json_encode(['message' => 'Aucun résultat trouvé']);
-    exit;
+$student = $result[0] ?? null;
+
+if ($student) {
+    $student['average'] = round(
+        ($student['math score'] + $student['reading score'] + $student['writing score']) / 3,
+        1
+    );
 }
 
-// Retourner le premier (et seul) document
-echo json_encode($result[0], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+echo json_encode($student, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
