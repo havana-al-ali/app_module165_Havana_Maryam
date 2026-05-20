@@ -2,36 +2,83 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Module 165 – Application MongoDB</title>
+    <title>Dashboard – Students Performance</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Module 165 – Application MongoDB</h1>
-    <h2>Exploration des données (Students Performance)</h2>
+<header>
+    <h1>Dashboard – Students Performance</h1>
+    <h3>Analyse MongoDB : Filtrage • Tri • Agrégation</h3>
+</header>
 
-    <p>Choisissez une opération à effectuer sur la base MongoDB :</p>
+<main>
 
-    <button onclick="filter('female')">Filtrer : Étudiantes (female)</button>
-    <button onclick="filter('bachelor')">Filtrer : Niveau Bachelor</button>
+    <!-- SECTION FILTRAGE -->
+    <section class="card">
+        <h2>Filtrage (find)</h2>
+        <p>Afficher uniquement les étudiantes :</p>
 
-    <button onclick="sortData('math')">Trier : Score de math</button>
-    <button onclick="sortData('writing')">Trier : Score d’écriture</button>
+            <button class="btn-primary" onclick="filter('female_highschool')">
+            Filtrer : Étudiantes (female) – High School
+            </button>
 
-    <button onclick="aggregate('avgByGender')">Agrégation : Moyenne par genre</button>
-    <button onclick="aggregate('topStudent')">Agrégation : Meilleur élève</button>
 
-    <h3>Résultat :</h3>
-    <div id="result"></div>
+        <div class="table-wrapper">
+            <table class="table" id="filter-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Genre</th>
+                        <th>Race</th>
+                        <th>Éducation</th>
+                        <th>Lunch</th>
+                        <th>Préparation</th>
+                        <th>Math</th>
+                        <th>Lecture</th>
+                        <th>Écriture</th>
+                    </tr>
+                </thead>
+                <tbody id="result-filter"></tbody>
+            </table>
+        </div>
+    </section>
 
-    <script src="filter.js"></script>
-    <script src="sort.js"></script>
-    <script src="aggregate.js"></script>
+    <!-- SECTION TRI -->
+    <section class="card">
+        <h2>Tri (sort + limit)</h2>
+        <p>Identifier le meilleur élève selon un critère :</p>
 
-    <footer>
-        <p>© 2026 – Application MongoDB | Auteurs : <strong>Havana Al Ali</strong> & <strong>Maryam Aman</strong></p>
-    </footer>
+        <div class="btn-group">
+            <button class="btn-secondary" onclick="sortData('math')">Top score : Math</button>
+            <button class="btn-secondary" onclick="sortData('writing')">Top score : Écriture</button>
+        </div>
+
+        <div id="result-sort" class="student-card"></div>
+    </section>
+
+    <!-- SECTION AGRÉGATION -->
+    <section class="card">
+        <h2>Agrégation (aggregate)</h2>
+        <p>Calculs statistiques avancés :</p>
+
+        <div class="btn-group">
+            <button class="btn-secondary" onclick="aggregate('avgByGender')">Moyennes par genre</button>
+            <button class="btn-secondary" onclick="aggregate('topStudent')">Meilleur élève (moyenne)</button>
+        </div>
+
+        <div id="aggregate-container"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 – Dashboard MongoDB | Havana Al Ali & Maryam Aman</p>
+</footer>
+
+<script src="filter.js"></script>
+<script src="sort.js"></script>
+<script src="aggregate.js"></script>
 
 </body>
 </html>
