@@ -65,7 +65,7 @@ Affiche **uniquement les étudiantes female** dont le niveau d’éducation pare
   ```
 
 ```
-- Résultat affiché sous forme de tableau complet :
+- Affichage sous forme de tableau complet :
 
    Genre
 
@@ -92,34 +92,30 @@ Top score Math
 
 Top score Écriture
 
-Commande MongoDB utilisée :
+Commandes MongoDB :
 
 ```js
 find().sort({ "math score": -1 }).limit(1);
-
-ou;
 find().sort({ "writing score": -1 }).limit(1);
 ```
 
-- Résultat affiché sous forme de carte détaillée :
+- Affichage sous forme de carte :
 
-  Genre
+Genre
 
-  Race
+Race
 
-  Éducation
+Éducation
 
-  Lunch
+Lunch
 
-  Préparation
+Préparation
 
-  Scores
+Scores
 
-  Moyenne calculée
+Moyenne calculée
 
 ### 3. Agrégation (aggregate)
-
-Deux affichages statistiques :
 
 a) Moyenne par genre
 Pipeline :
@@ -134,7 +130,7 @@ Pipeline :
       avg_writing: { $avg: "$writing score" }
   }}
 ]
--> Affichage sous forme de tableau.
+- Affichage : tableau statistique.
 
  b) Meilleur élève (moyenne totale)
  Pipeline :
@@ -146,28 +142,61 @@ Pipeline :
   { $sort: { average: -1 }},
   { $limit: 1 }
 ]
--> Affichage sous forme de carte.
 ```
+
+- Affichage sous forme de carte.
 
 ## 3. Instructions d’installation & exécution
 
-Exécution avec Docker
+Installation locale (Windows 11 – Intel i7)
+Cette application a été développée et testée sur Windows 11, processeur Intel Core i7.
 
 ### Prérequis
 
-Docker Desktop installé
+- 1.Installer PHP 8
+  https://windows.php.net/download/
 
-### Lancer MongoDB
+-> Vérifier : php -v
 
-docker run -d -p 27017:27017 --name mongodb mongo
+- 2.Installer Composer
+  https://getcomposer.org/download/
+
+-> Vérifier : composer -V
+
+### Installer MongoDB Community Server
+
+https://www.mongodb.com/try/download/community
+
+- Configuration utilisée :
+
+Mode : Standalone
+
+Port : 27020
+
+Authentification activée
+
+Utilisateur : myUserAdmin
+
+AuthSource : admin
+
+### Préparer la base de données
+
+MongoDB démarre automatiquement sur Windows.
+Sinon : Services → MongoDB Server → Démarrer
+
+Importer les données (si nécessaire) :
+
+mongoimport --db my_data_Havana_Maryam --collection open_data --file open_data.json --jsonArray
 
 ### Installer les dépendances PHP
 
-composer install
+- dans le doccier du projet :
+  composer install
 
 ### Lancer un serveur PHP local
 
-php -S localhost:8000
+- La racine du projet correspond au dossier contenant backend/, frontend/, vendor/, composer.json et README.md :
+  php -S localhost:8000
 
 ### Accéder à l’application
 
@@ -177,4 +206,4 @@ http://localhost:8000/frontend/index.html
 
 Havana Al Ali | Maryam Aman
 Module 165 – Évaluation finale
-Année : 2026
+Date : Mai 2026
