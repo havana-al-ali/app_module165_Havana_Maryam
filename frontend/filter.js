@@ -1,4 +1,5 @@
 function filter(type) {
+ localStorage.clear();
     fetch("../backend/filter.php?type=" + type)
         .then(r => r.json())
         .then(data => {
@@ -24,4 +25,18 @@ function filter(type) {
                 tbody.innerHTML += row;
             });
         });
+}
+
+function resetFilterUI() {
+    // vider le localStorage
+    localStorage.clear();
+
+    // cacher le tableau
+    document.getElementById("filter-table").style.display = "none";
+
+    // vider les résultats
+    document.getElementById("result-filter").innerHTML = "";
+
+    // message optionnel
+    console.log("LocalStorage vidé et tableau réinitialisé.");
 }

@@ -33,22 +33,22 @@ h2 {
     color: #2d4a7c;
 }
 
-.btn-primary, .btn-secondary {
+
+
+.btn-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.btn-secondary {
     padding: 10px 18px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    margin-right: 10px;
-}
-
-.btn-primary {
-    background: #2d4a7c;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #1f3558;
+    transition: 0.2s;
 }
 
 .btn-secondary {
@@ -58,6 +58,23 @@ h2 {
 
 .btn-secondary:hover {
     background: #3a5a85;
+}
+
+.reset-pill {
+    background: #f3f3f3;
+    border: 1px solid #d0d0d0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.reset-pill:hover {
+    background: #e7e7e7;
 }
 
 .table-wrapper {
@@ -90,6 +107,7 @@ h2 {
     line-height: 1.6;
     border-left: 4px solid #2d4a7c;
 }
+
 
 footer {
     text-align: center;

@@ -1,4 +1,5 @@
 function sortData(field) {
+ localStorage.clear();
     fetch("../backend/sort.php?field=" + field)
         .then(r => r.json())
         .then(s => {
@@ -15,4 +16,15 @@ function sortData(field) {
                 <strong>Moyenne : ${s.average}</strong>
             `;
         });
+}
+
+function resetSortUI() {
+    // vider le localStorage
+    localStorage.clear();
+
+    // vider les résultats
+    document.getElementById("result-sort").innerHTML = "";
+
+    // message optionnel
+    console.log("Tri réinitialisé.");
 }

@@ -20,9 +20,10 @@
         <h2>Filtrage (find)</h2>
         <p>Afficher uniquement les étudiantes :</p>
 
-            <button class="btn-primary" onclick="filter('female_highschool')">
-            Filtrer : Étudiantes (female) – High School
-            </button>
+            <div class="btn-group">
+                <button class="btn-secondary" onclick="filter('female_highschool')">Filtrer : Étudiantes (female) – High School</button>
+                <button class="reset-pill" onclick="resetFilterUI()">↺ Réinitialiser</button>
+            </div>
 
 
         <div class="table-wrapper">
@@ -52,6 +53,7 @@
         <div class="btn-group">
             <button class="btn-secondary" onclick="sortData('math')">Top score : Math</button>
             <button class="btn-secondary" onclick="sortData('writing')">Top score : Écriture</button>
+            <button class="reset-pill" onclick="resetSortUI()">↺ Réinitialiser</button>
         </div>
 
         <div id="result-sort" class="student-card"></div>
@@ -65,6 +67,9 @@
         <div class="btn-group">
             <button class="btn-secondary" onclick="aggregate('avgByGender')">Moyennes par genre</button>
             <button class="btn-secondary" onclick="aggregate('topStudent')">Meilleur élève (moyenne)</button>
+            <button class="reset-pill" onclick="resetAggregateUI()">↺ Réinitialiser</button>
+
+
         </div>
 
         <div id="aggregate-container"></div>

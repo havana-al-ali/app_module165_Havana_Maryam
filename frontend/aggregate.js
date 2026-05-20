@@ -1,5 +1,5 @@
 function aggregate(type) {
-
+ localStorage.clear();
     fetch("../backend/aggregate.php?type=" + type)
         .then(r => r.json())
         .then(data => {
@@ -59,4 +59,15 @@ function aggregate(type) {
                 `;
             }
         });
+}
+
+function resetAggregateUI() {
+    // vider le localStorage
+    localStorage.clear();
+
+    // vider les résultats
+    document.getElementById("aggregate-container").innerHTML = "";
+
+    // message optionnel
+    console.log("LocalStorage vidé et tableau réinitialisé.");
 }
