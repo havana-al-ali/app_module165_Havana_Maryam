@@ -1,6 +1,11 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/connect.php';
+
+if (getenv('DOCKER') === 'true') {
+    require __DIR__ . '/connect.docker.php';
+} else {
+    require __DIR__ . '/connect.php';
+}
 
 header('Content-Type: application/json; charset=utf-8');
 

@@ -138,59 +138,29 @@ Pipeline :
 
 ## 3. Instructions d’installation & exécution
 
-Installation locale (Windows 11 – Intel i7)
-Cette application a été développée et testée sur Windows 11, processeur Intel Core i7.
+### Exécution via Docker
 
-### Prérequis
+Cette application fonctionne entièrement via Docker.
 
-- 1.Installer PHP 8
-  https://windows.php.net/download/
+1. Ouvrir un terminal dans le dossier docker/
 
--> Vérifier : php -v
+- cd docker
 
-- 2.Installer Composer
-  https://getcomposer.org/download/
+2. Lancer l’application :
 
--> Vérifier : composer -V
+- docker compose up --build
 
-### Installer MongoDB Community Server
+Docker démarre automatiquement :
 
-https://www.mongodb.com/try/download/community
+- un conteneur PHP 8.2
 
-- Configuration utilisée :
+- un conteneur MongoDB 6
 
-- Mode : Standalone
+- l’application accessible sur le port 8000
 
-- Port : 27020
+3. Accéder à l’application :
 
-- Authentification activée
-
-- Utilisateur : myUserAdmin
-
-- AuthSource : admin
-
-### Préparer la base de données
-
-MongoDB démarre automatiquement sur Windows.
-Sinon : Services → MongoDB Server → Démarrer
-
-Importer les données (si nécessaire) :
-
-mongoimport --db my_data_Havana_Maryam --collection open_data --file open_data.json --jsonArray
-
-### Installer les dépendances PHP
-
-- dans le doccier du projet :
-  composer install
-
-### Lancer un serveur PHP local
-
-- La racine du projet correspond au dossier contenant backend/, frontend/, vendor/, composer.json et README.md :
-  php -S localhost:8000
-
-### Accéder à l’application
-
-http://localhost:8000/frontend/index.html
+- http://localhost:8000/frontend/index.html
 
 ## Auteur
 

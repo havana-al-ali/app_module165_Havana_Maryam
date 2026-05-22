@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  php:
+    build: .
+    container_name: php_app165
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8000 -t frontend
+
+  mongo:
+    image: mongo:6
+    container_name: mongo_app165
+    restart: always
+    ports:
+      - "27020:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: myUserAdmin
+      MONGO_INITDB_ROOT_PASSWORD: myPassword123
+      MONGO_INITDB_DATABASE: my_data_Havana_Maryam
