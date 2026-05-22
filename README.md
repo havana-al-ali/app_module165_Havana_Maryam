@@ -65,24 +65,20 @@ Affiche **uniquement les étudiantes female** dont le niveau d’éducation pare
   ```
 
 ```
-- Affichage sous forme de tableau complet :
+Affichage sous forme de tableau contenant les colonnes suivantes :
 
-   Genre
+- Genre
+- Race / Ethnicité
+- Niveau d’éducation parental
+- Lunch
+- Test preparation course
+- Math score
+- Reading score
+- Writing score
 
-   Race / Ethnicité
-
-   Niveau d’éducation
-
-   Lunch
-
-   Préparation
-
-   Math
-
-   Lecture
-
-   Écriture
 ```
+
+---
 
 ### 2. Tri (sort + limit)
 
@@ -99,21 +95,15 @@ find().sort({ "math score": -1 }).limit(1);
 find().sort({ "writing score": -1 }).limit(1);
 ```
 
-- Affichage sous forme de carte :
+Affichage sous forme de carte contenant les informations suivantes :
 
-Genre
-
-Race
-
-Éducation
-
-Lunch
-
-Préparation
-
-Scores
-
-Moyenne calculée
+- Genre
+- Race / Ethnicité
+- Niveau d’éducation parental
+- Lunch
+- Test preparation course
+- Scores détaillés (Math, Lecture, Écriture)
+- Moyenne calculée (math + reading + writing)
 
 ### 3. Agrégation (aggregate)
 
@@ -169,15 +159,15 @@ https://www.mongodb.com/try/download/community
 
 - Configuration utilisée :
 
-Mode : Standalone
+- Mode : Standalone
 
-Port : 27020
+- Port : 27020
 
-Authentification activée
+- Authentification activée
 
-Utilisateur : myUserAdmin
+- Utilisateur : myUserAdmin
 
-AuthSource : admin
+- AuthSource : admin
 
 ### Préparer la base de données
 
