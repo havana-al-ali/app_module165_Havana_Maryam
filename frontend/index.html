@@ -17,11 +17,11 @@
 
     <!-- SECTION FILTRAGE -->
     <section class="card">
-        <h2>Filtrage (find)</h2>
-        <p>Afficher uniquement les étudiantes :</p>
+        <h2>Section Filtrage</h2>
+        <p>Afficher uniquement les étudiantes avec un niveau High School :</p>
 
             <div class="btn-group">
-                <button class="btn-secondary" onclick="filter('female_highschool')">Filtrer : Étudiantes (female) – High School</button>
+                <button class="btn-secondary" onclick="filter('female_highschool')"> Appliquer le filtre</button>
                 <button class="reset-pill" onclick="resetFilterUI()">↺ Réinitialiser</button>
             </div>
 
@@ -47,12 +47,12 @@
 
     <!-- SECTION TRI -->
     <section class="card">
-        <h2>Tri (sort + limit)</h2>
-        <p>Identifier le meilleur élève selon un critère :</p>
+        <h2>Section Tri</h2>
+        <p>Identifier l’élève ayant la meilleure note dans une matière :</p>
 
         <div class="btn-group">
-            <button class="btn-secondary" onclick="sortData('math')">Top score : Math</button>
-            <button class="btn-secondary" onclick="sortData('writing')">Top score : Écriture</button>
+            <button class="btn-secondary" onclick="sortData('math')">Meilleure note en Math  </button>
+            <button class="btn-secondary" onclick="sortData('writing')">Meilleure note en Écriture  </button>
             <button class="reset-pill" onclick="resetSortUI()">↺ Réinitialiser</button>
         </div>
 
@@ -61,12 +61,12 @@
 
     <!-- SECTION AGRÉGATION -->
     <section class="card">
-        <h2>Agrégation (aggregate)</h2>
-        <p>Calculs statistiques avancés :</p>
+        <h2>Section Agrégation</h2>
+        <p>Afficher des statistiques globales sur les élèves :</p>
 
         <div class="btn-group">
             <button class="btn-secondary" onclick="aggregate('avgByGender')">Moyennes par genre</button>
-            <button class="btn-secondary" onclick="aggregate('topStudent')">Meilleur élève (moyenne)</button>
+            <button class="btn-secondary" onclick="aggregate('topStudent')">Meilleur élève (moyenne générale)</button>
             <button class="reset-pill" onclick="resetAggregateUI()">↺ Réinitialiser</button>
 
 
