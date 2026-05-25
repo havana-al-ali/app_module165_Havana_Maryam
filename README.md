@@ -150,9 +150,11 @@ mongoimport --username myUserAdmin --password myPassword123 --authenticationData
  --db my_data_Havana_Maryam \
  --collection open_data \
  --file /data/1_open_data_Havana_Maryam.json \
- --jsonArray 4. URLs de test du backend
+ --jsonArray
 
 ```
+
+5. URLs de test du backend
 
 Filtrage :
 
@@ -168,7 +170,7 @@ Agrégation :
 http://localhost:8000/backend/aggregate.php?type=avg_by_gender
 http://localhost:8000/backend/aggregate.php?type=top_student
 
-5. Accéder à l’application :
+6. Accéder à l’application :
 
 - http://localhost:8000/frontend/index.html
 
