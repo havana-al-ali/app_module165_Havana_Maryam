@@ -133,7 +133,7 @@ Cette application fonctionne entièrement via Docker.
 
 Docker démarre automatiquement :
 
-- PHP sur http://localhost:8000
+- PHP accessible sur : http://localhost:8000
 
 - MongoDB sur localhost:27020
 
@@ -142,7 +142,7 @@ Docker démarre automatiquement :
 - Les données sont fournies dans :
   data/1_open_data_Havana_Maryam.json
 
-Si nécessaire, importer manuellement :
+4. Si nécessaire, importer manuellement :
 
 ```js
 docker exec -it mongo_app165 bash
